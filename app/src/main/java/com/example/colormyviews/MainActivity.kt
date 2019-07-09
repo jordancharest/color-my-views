@@ -21,7 +21,10 @@ class MainActivity : AppCompatActivity() {
                                                 box_three_text,
                                                 box_four_text,
                                                 box_five_text,
-                                                constraint_layout)
+                                                constraint_layout,
+                                                red_button,
+                                                yellow_button,
+                                                green_button)
 
         for (view in clickableViews) {
             view.setOnClickListener { makeColored(it) }
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun makeColored(view: View) {
         when(view.id)  {
+            // click on text views
             // can use Color class for colors
             R.id.box_one_text -> view.setBackgroundColor(Color.DKGRAY)
             R.id.box_two_text -> view.setBackgroundColor(Color.GRAY)
@@ -39,6 +43,12 @@ class MainActivity : AppCompatActivity() {
             R.id.box_four_text -> view.setBackgroundResource(android.R.color.holo_green_dark)
             R.id.box_five_text -> view.setBackgroundResource(android.R.color.holo_green_light)
 
+            // or click on color-changing buttons
+            R.id.red_button -> box_three_text.setBackgroundResource(R.color.red_button)
+            R.id.yellow_button -> box_four_text.setBackgroundResource(R.color.yellow_button)
+            R.id.green_button -> box_five_text.setBackgroundResource(R.color.green_button)
+
+            // background (or non-clickable views)
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
